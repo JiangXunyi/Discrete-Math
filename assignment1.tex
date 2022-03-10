@@ -1,0 +1,426 @@
+\documentclass[12pt, a4paper, oneside]{article}
+\usepackage{amsmath, amsthm, amssymb, bm, graphicx, hyperref, mathrsfs,tabularx}
+\newenvironment{problem}{\stepcounter{problemname}\par\noindent\textsc{Problem \arabic{problemname}. }}{\\\par}
+\newenvironment{solution}{\par\noindent\textsc{Solution. }}{\\\par}
+\newenvironment{note}{\par\noindent\textsc{Note of Problem \arabic{problemname}. }}{\\\par}
+
+
+\title{\textbf{Homework}}
+\author{Xunyi Jiang 12010938}
+\date{\today}
+\linespread{1.5}
+\newcounter{problemname}
+
+\begin{document}
+
+\maketitle
+
+\begin{problem}
+(5 points) Let p, q be the propositions\\
+p: You get 100 marks on the final.\\
+q: You get an A in this course.\\
+Write these propositions using p and q and logical connectives (including negations).\\
+(a) You do not get 100 marks on the final.\\
+(b) You get 100 marks on the final, but you do not get an A in this course.\\
+(c) You will get an A in this course if you get 100 marks on the final.\\
+(d) If you do not get 100 marks on the final, then you will not get an A in this course.\\
+(e) Getting 100 marks on the final is sufficient for getting an A in this course.\\
+(f) You get an A in this course, but you do not get 100 marks on the final.\\
+(g) Whenever you get an A in this course, you got 100 marks on the final.\\
+\end{problem}
+\begin{solution}
+    (a) $\lnot p$\\
+    (b) $p \land \lnot q$\\
+    (c) $p \rightarrow q$\\
+    (d) $\lnot p \rightarrow \lnot q$\\
+    (e) $p \rightarrow q$\\
+    (f) $q \land \lnot p$\\
+    (g) $q \rightarrow p$\\
+\end{solution}
+
+
+\begin{problem}
+(5 points) Construct a truth table for each of these compound propositions.\\
+(a) $(p \oplus  q) \rightarrow (p \land q)$\\
+(b) $(p \leftrightarrow  q) \oplus (\lnot p \leftrightarrow q)$\\
+(c) $(p \oplus q) \rightarrow (p \oplus \lnot q)$\\
+\end{problem}
+\begin{solution}
+    (a)\quad
+    \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        $p$ & $q$ & $p \oplus  q$ & $p \land q$ & $(p \oplus  q) \rightarrow (p \land q)$\\\hline
+        T & T & F & T & T\\\hline
+        T & F & T & F & F\\\hline
+        F & T & T & F & F\\\hline
+        F & F & F & F & T\\\hline
+    \end{tabular}\\[12pt]
+    (b)\quad
+    \begin{tabular}{|c|c|c|c|c|}\hline
+        $p$ & $q$ & $p \leftrightarrow q$ & $\lnot p \leftrightarrow q$ & $(p \leftrightarrow  q) \oplus (\lnot p \leftrightarrow q)$\\\hline
+        T & T & T & F & T\\\hline
+        T & F & F & T & T\\\hline
+        F & T & F & T & T\\\hline
+        F & F & T & F & T\\\hline        
+    \end{tabular}\\[12pt]
+    (c)\quad
+    \begin{tabular}{|c|c|c|c|c|}\hline
+        $p$ & $q$ & $p \oplus q$ & $p \oplus \lnot q$ & $(p \oplus q) \rightarrow (p \oplus \lnot q)$\\\hline
+        T & T & F & T & T\\\hline
+        T & F & T & F & F\\\hline
+        F & T & T & F & F\\\hline
+        F & F & F & T & T\\\hline         
+    \end{tabular}
+\end{solution}
+
+
+\begin{problem}
+(5 points) Use truth tables to decide whether or not the following two propositions are equivalent.\\
+(a) $p \rightarrow q$ and $\lnot p \vee  q $ (This is the Useful Law.)\\
+(b) $p \oplus q $ and $\lnot p \vee \lnot q$\\
+(c) $(p \rightarrow q) \rightarrow r $ and $p \rightarrow (q \rightarrow r)$\\
+(d) $(\lnot q  \land  (p \rightarrow q))$ and $\lnot p$\\
+(e) $(p \vee q) \rightarrow r$ and $(p \rightarrow r) \land (q \rightarrow r)$\\
+\end{problem}
+\begin{solution}
+    (a)\quad
+    \begin{tabular}{|c|c|c|c|c|}\hline
+        $p$ & $q$ & $p \rightarrow q$ & $\lnot p \vee q$ & $(p \rightarrow q) \leftrightarrow (\lnot p \vee q)$ \\\hline
+        T & T & T & T & T\\\hline
+        T & F & F & F & T\\\hline
+        F & T & T & T & T\\\hline
+        F & F & T & T & T\\\hline    
+    \end{tabular}\\[12pt]
+    \qquad $p \rightarrow q$ is equivalent to $\lnot p \vee q$.\\
+    (b)\quad
+    \begin{tabular}{|c|c|c|c|c|}\hline
+        $p$ & $q$ & $p \oplus q$ & $\lnot p \vee \lnot q$ & $(p \oplus q) \leftrightarrow (\lnot p \vee \lnot q)$\\\hline
+        T & T & F & F & T \\\hline
+        T & F & T & T & T \\\hline
+        F & T & T & T & T \\\hline
+        F & F & F & T & F \\\hline    
+    \end{tabular}\\[12pt]
+    \quad$p \oplus q$ is not equivalent to $\lnot p \vee \lnot q$.\\[12pt]
+    (c)\quad
+    \begin{table}[h]
+        \begin{tabular}[H]{|c|c|c|c|c|c|c|c|}\hline
+        $p$ & $q$ & $r$ & $p \rightarrow q$ & $q \rightarrow r$ & $(p \rightarrow q) \rightarrow r$ & $p \rightarrow (q \rightarrow r)$ & \begin{tabular}[c]{@{}l@{}}
+            $((p \rightarrow q) \rightarrow r) \Leftrightarrow$ \\ $(p \rightarrow (q \rightarrow r))$
+        \end{tabular}\\\hline
+        T & T & T & T & T & T & T & T\\\hline
+        T & T & F & T & F & F & F & T\\\hline
+        T & F & T & F & T & T & T & T\\\hline
+        F & T & T & T & T & T & T & T\\\hline
+        T & F & F & F & T & T & T & T\\\hline
+        F & T & F & T & F & F & T & F\\\hline
+        F & F & T & T & T & T & T & T\\\hline
+        F & F & F & T & T & F & T & F\\\hline        
+        \end{tabular}
+    \end{table}\\[12pt]
+    $(p \rightarrow q) \rightarrow r$ is not equivalent to $p \rightarrow (q \rightarrow r)$.\\[12pt]
+    (d)\quad
+    \begin{tabular}{|c|c|c|c|c|}\hline
+        $p$ & $q$ & $p \rightarrow q$ & $\lnot q \land (p \rightarrow q)$ & $ (\lnot q \land (p \rightarrow q)) \leftrightarrow \lnot p$\\\hline
+        T & T & T & F & F \\\hline
+        T & F & F & F & T \\\hline
+        F & T & T & F & F \\\hline
+        F & F & T & T & T \\\hline        
+    \end{tabular}\\[12pt]
+    \qquad $\lnot q \land (p \rightarrow q)$ is not equivalent to $\lnot p$.\\[12pt]
+    (e)\quad
+    \begin{tabular}{|c|c|c|c|c|c|c|c|c|}\\\hline
+        $p$ & $q$ & $r$ & $p \vee q$ & $(p \vee q) \rightarrow r$ & $p \rightarrow r$ & $q \rightarrow r$ & \begin{tabular}[c]{@{}l@{}}
+            $(p \rightarrow r) \land$ \\ $ (q \rightarrow r)$
+        \end{tabular}  & 
+        \begin{tabular}[c]{@{}l@{}}
+            $((p \vee q) \rightarrow r) \leftrightarrow$ \\ $((p \rightarrow r) \vee (q \rightarrow r))$
+        \end{tabular}\\\hline
+        T & T & T & T & T & T & T & T & T\\\hline
+        T & T & F & T &F& F& F& F &T\\\hline
+        T & F & T & T &T& T& T& T &T\\\hline
+        F & T & T & T &T& T& T& T &T\\\hline
+        T & F & F & T &F& F& T& F &T\\\hline
+        F & T & F & T &F& T& F& F &T\\\hline
+        F & F & T & F &T& T& T& T &T\\\hline
+        F & F & F & F &T &T &T& T &T\\\hline        
+    \end{tabular}
+    \quad $((p \vee q) \rightarrow r) \leftrightarrow$ is equivalent to $((p \rightarrow r) \vee (q \rightarrow r))$.\\[12pt] 
+\end{solution}
+
+
+\begin{problem}
+(10 points) Use logical equivalences to prove the following statements.\\
+(a) $\lnot (p \oplus q)$ and $p \leftrightarrow q$ are equivalent.\\
+(b) $\lnot(p \rightarrow q) \rightarrow \lnot q$ is a tautology.\\
+(c) $(p \rightarrow q) \rightarrow ((r \rightarrow p) \rightarrow (r \rightarrow q))$ is a tautology
+\end{problem}
+\begin{solution}
+    (a) $\lnot (p \oplus q) \equiv \lnot ((\lnot p \land q) 
+    \vee (p \land \lnot q)) \equiv (p \vee \lnot q) \land (\lnot p \vee q)$\\
+    \quad $(p \rightarrow q) \land (q \rightarrow p) \equiv (p \vee \lnot q) \land (\lnot p \vee q)$\\
+    $\therefore \lnot (p \oplus q) \equiv (p \rightarrow q) \land (q \rightarrow p)$.\\
+    (b) $\lnot(p \rightarrow q) \rightarrow \lnot q \equiv \lnot (p \land \lnot q) \vee \lnot q \equiv \lnot p \vee q \vee \lnot q = \lnot p \vee \text{T} \equiv $T.\\
+    (c) $(p \rightarrow q) \rightarrow \lnot (\lnot r \vee p) \vee (\lnot r \vee q) \equiv (p \land \lnot q) \vee ((r \land \lnot p) \vee (\lnot r \vee q)) \equiv $\\
+    $(p \land \lnot q) \vee (r \vee \lnot r) \land (\lnot p \vee r) \equiv (p \land \lnot q) \vee ((\text{T} \vee q) \land (\lnot p \vee \lnot r) \vee q) \equiv$\\
+    $((p \land \lnot q) \vee T ) \land (p \land \lnot q) \vee \lnot p \vee \lnot r \vee q \equiv T \land ( T \vee T \vee \lnot r \equiv )$T.
+\end{solution}
+
+
+\begin{problem}
+    (5 points) Explain, without using a truth table, why $(p \vee \lnot q) \land (q \vee \lnot r) \land (r \vee \lnot p)$ is true, when p, q, and r have the same truth value and it is false otherwise.\\
+\end{problem}
+\begin{solution}
+    When p,q,r have the same truth value.\\
+    %$(p \land (q \vee \lnot r) \land (r \vee \lnot p)) \vee (\lnot q \land (q \vee \lnot r) \land (r \vee \lnot p)) \equiv  $
+    $(p \vee \lnot q) \land (q \vee \lnot r) \land (r \vee \lnot p) \equiv (q \rightarrow p) \land (r \rightarrow q) \land (p \rightarrow r)$\\
+    Then there are two different cases.\\
+    \textbf{Case 1:} p is T, since $(q \rightarrow p), (p \rightarrow r), (r \rightarrow q) \text{ all need to be true}$\\
+    $\Rightarrow r $ needs to be true.$\Rightarrow q$ needs to be true. $\Rightarrow$ same truth value.\\
+    \textbf{Case 2:} p is F, then $q$ needs to be false, then r needs to be false.  
+\end{solution}
+
+
+\begin{problem}
+    (10 points) Determine whether or not the following two are logically equivalent, and explain your answer.\\
+    (a) $(p \rightarrow q) \vee (p \rightarrow r) \text{ and } p \rightarrow (q \vee r)$\\
+    (b) $\lnot p \rightarrow (q \rightarrow r) \text{ and } q \rightarrow (p \vee r)$\\
+    (c) $(p \rightarrow q) \land (p \rightarrow r) \text{ and } p \rightarrow (q \land r).$\\
+    (d) $(p \vee q) \rightarrow r \text{ and } (p \rightarrow r) \vee (q \rightarrow r)$.\\    
+\end{problem}
+\begin{solution}
+    (a) $(p \rightarrow q) \vee (p \rightarrow r) \equiv (\lnot p \vee q) \vee (\lnot p \vee r) \equiv (\lnot p \vee q \vee r)$\\
+    $p \rightarrow (q \vee r) \equiv \lnot p \vee q \vee r $\\ So these propersitions are equivalent.\\
+    (b) $\text{left} = \lnot p \rightarrow (q \rightarrow r) = p \vee (\lnot q \vee r )$\\
+    right = $\lnot q \vee (p \vee r)$\\
+    So they are equivalent.\\
+    (c) left = $(\lnot p \vee q ) \land (\lnot p \vee r) = \lnot p \vee (q \land r) = p \rightarrow (p \land r) $ = right\\
+    They are equivalent.\\
+    (d) left = $\lnot (p \vee q) \vee r  = (\lnot p \land \lnot q) \vee r = (\lnot p \vee r) \land (\lnot q \vee r) = (p \rightarrow r) \land (q \rightarrow r) $\\
+    So they are not equivalent.
+\end{solution}
+
+
+\begin{problem}
+(5 points) Let C(x) be the statement “x has a cat”, let D(x) be the statement “x has a dog”
+and let F(x) be the statement “x has a ferret.” Express each of these sentences in terms of C(x),
+D(x), F(x), quantifiers, and logical connectives. Let the domain consist of all students in your
+class.\\
+(a) A student in your class has a cat, a dog, and a ferret.\\
+(b) All students in your class have a cat, a dog, or a ferret.\\
+(c) Some student in your class has a cat and a ferret, but not a dog.\\
+(d) No student in your class has a cat, a dog, and a ferret.\\
+(e) For each of the three animals, cats, dogs, and ferrets, there is a student in your class who
+has this animal as a pet.\\
+\end{problem}
+\begin{solution}
+    (a) $\exists \text{x (C(x)} \land \text{D(x)} \land \text{F(x))}$\\
+    (b) $\forall \text{x (C(x)} \vee \text{D(x)} \vee \text{F(x))}$\\
+    (c) $\exists \text{x (C(x)} \land \text{F(x)} \land \lnot \text{D(x)}$.\\
+    (d) $\forall \text{x} \lnot (C(x) \vee D(x) \vee F(x))$.\\
+    (e) $\exists x_{1} C(x_{1}) \land \exists x_{2} D(x_{2}) \land \exists x_{3} F(x_{3})$
+\end{solution}
+
+
+\begin{problem}
+(5 points) Let F(x, y) be the statement “x can fool y”, where the domain consists of all people in the world. Use quantifiers to express each of these statement.\\
+(a) Everybody can fool Fred.\\
+(b) Evelyn can fool everybody.\\
+(c) There is no one who can fool everybody.\\
+(d) Nancy can fool exactly two people.\\
+(e) There is exactly one person whom everybody can fool.\\
+(f) There is someone who can fool exactly one person besides himself or herself.\\
+\end{problem}
+\begin{solution}
+    (a) $\forall x F(x,Fred)$.\\
+    (b) $\forall y F(Evelyn , y)$.\\
+    (c) $\forall x, \forall y \lnot F(x,y)$.\\
+    (d) $\exists! y_{1}, y_{2}, F(Nancy, y_{1}) \land F(Nancy, y_{2})$.\\
+    (e) $\exists! y, \forall x, F(x,y)$.\\
+    (f) $\exists x, \exists y, y \neq x, F(x,y)$.\\ 
+\end{solution}
+
+
+\begin{problem}
+(5 points) Express the negations of each of these statements so that all negation symbols
+immediately precede predicates.\\
+(a) $\forall y \exists x \exists z (T(x, y, z) \vee Q(x, y))$.\\
+(b) $\exists x\exists y P(x, y) \land \forall x\forall y Q(x, y)$\\
+(c) $\exists x\exists y(Q(x, y) \leftrightarrow Q(y, x))$\\
+(d) $\forall x\exists y\forall z T(x, y, z)$\\
+\end{problem}
+\begin{solution}
+    (a) $\exists y \forall x \forall z (\lnot T(x, y, z) \land \lnot Q(x,y))$\\
+    (b) $\forall x \forall y \lnot P(x,y) \vee \exists x \exists y \lnot Q(x,y)$\\
+    (c) $\forall x \forall y (\lnot Q(x, y) \oplus \lnot Q(y, x))$\\
+    (d) $\exists x \forall \exists z \lnot T(x,y,x)$\\
+\end{solution}
+
+
+\begin{problem}
+(5 points) Prove that if $p \land q, p \rightarrow \lnot(q \land r), s \rightarrow r, then \lnot s$.
+\end{problem}
+\begin{solution}
+    \begin{tabular}{l l}
+        \textbf{Step} & \textbf{Reason}\\
+        1.$p \land q$ & Premise\\
+        2.p & Simplification using (1)\\
+        3.$p \rightarrow \lnot(q \land r)$ & Premise\\
+        4.$\lnot(q \land r)$ & Modus ponens using (2) and (3)\\
+        5.$p \rightarrow \lnot r$ & Simplification using (4)\\
+        6.$\lnot r$ & Modus ponens using (2),(4)\\
+        7.$s \rightarrow r$ & Premise\\
+        8.$\lnot s$ & Modus tollens using (6),(7)\\
+    \end{tabular}  
+\end{solution}
+
+
+\begin{problem}
+(10 points) For each of these arguments, explain which rules of inference are used for each step.\\
+    (a) “Somebody in this class enjoys whale watching. Every person who enjoys whale watching cares about ocean pollution. Therefore, there is a person in this class who cares about ocean pollution.”\\
+    (b) “Each of the 93 students in this class owns a personal computer. Everyone who owns a personal computer can use a word processing program. Therefore, Zeke, a student in this class, can use a word processing program.”\\
+    (c) “Each of five roommates, A, B, C, D, and E, has taken a course in discrete mathematics. Every student who has taken a course in discrete mathematics can take a course in algorithms. Therefore, all five roommates can take a course in algorithms next year.”\\    
+\end{problem}
+\begin{solution}
+    (a) $p_{1}(x)$: x enjoys whale watching.\\
+    $p_{2}(x)$: x cares about ocean pollution.\\
+    Based on the discription above, $\exists x p_{1}(x), p_{1}(x) \rightarrow p_{2}(x)$\\ Using Modus ponens, we can get $\exists x, p_{2}(x)$.\\
+    (b) $p_{1}(x)$: x owns a personal computer.\\
+    $p_{2}(x)$: x can use a word processing program.\\
+    Based on the discription above, $\forall xp_{1}(x),p_{1} \rightarrow p_{2}(x)$\\
+    Using Modus ponens, we can get $\forall x, p_{2}(x)$\\ Since Zeke is in this class, then we know that $p_{2}(Zeke)$ is true.\\  
+    (c) $p_{1}(x)$: x has taken a course in discrete mathematics.\\
+    $p_{2}(x)$: x can take a course in algorithms.\\
+    domain: x in \{A,B,C,D,E\} are the five roommates.\\
+    $\forall x p_{1}(x) \rightarrow p_{2}(x)$ Using Modus ponens, we can get $\forall x p_{2}(x)$, which means all five roommates cna take a course in algorithms next year.  
+\end{solution}
+
+
+\begin{problem}
+    (5 points)
+    (a) Give the negation of the statement
+    $\forall n \in \mathbb{N}  (n^3 + 6n + 5) is odd \Rightarrow n is even).$
+    (b) Either the original statement in (a) or its negation is true. Which one is it and explain why?    
+\end{problem}
+\begin{solution}
+    (a) $\exists n \in \mathbb{N} (n^3+6n+5) is odd \Rightarrow n is odd$\\
+    (b) Proof by contradiction :\\
+    \begin{proof}
+         Suppose n is odd, then let $n = 2k+1, k \in \mathbb{N}$\\
+    $n^3 + 6n + 5 = (2k+1)^3 + 6(2k+1) + 5 = 2(4k^3+2k^2+7k+6)$ is even,\\ which is contradict to $(n^3 + 6n + 5)$ is odd. 
+    \end{proof}
+       So the original statement in (a) is true.
+\end{solution}
+
+
+\begin{problem}
+     (5 points) Give a direct proof that: Let a and b be integers. If $a^2 + b^2$ is even, then a + b is even.
+\end{problem}
+\begin{solution}
+    \begin{proof}
+        Let $a^2+ b^2$ is even, then there are two situations.\\
+        1.$a^2$ is even and $b^2$ is odd\\
+        then a is even and b is odd, $a+b$ is even.\\
+        2.$a^2$ is odd and $b^2$ is even\\
+        then a is odd and b is even, $a+b$ is even.
+    \end{proof}
+    So if $a^2 + b^2$ is even, then a + b is even.
+\end{solution}
+
+
+
+\begin{problem}
+    Prove or disprove that if a and b are rational numbers, then $a^b$ is also rational.    
+\end{problem}
+\begin{solution}
+    \begin{proof}
+        We can find a counter-example, let a = 2, b = 1/2, \\then $a^b = \sqrt{2}$ is not a rational number.  
+    \end{proof}
+    This statement is wrong.
+\end{solution}
+
+
+\begin{problem}
+    Prove that $2^{1/3}$ is irrational.
+\end{problem}
+\begin{solution}
+    \begin{proof}
+        Argue by contradiction, assum $2^{1/3}$ is a rational number, \\$2^{1/3} = p/q$,which p, q are relatively prime number.\\
+        $p^3 = 2q^3$ then $p^3$ is even, so p is even, let $p = 2k, k \in \mathbb{N}$\\
+        $q^3 = 4k^3$,which means $q^3$ is even, so q is even. so p and q is not relatively prime number, which is contradict to the assumption  
+    \end{proof}.\\
+\end{solution}
+
+
+
+\begin{problem}
+    Suppose that we have a theorem: “$\sqrt n$ is irrational whenever n is a positive integer that is not a perfect square.” Use this theorem to prove that $\sqrt 2 + \sqrt 3$ is irrational.
+\end{problem}
+\begin{solution}
+    \begin{proof}
+        Argue by contradiction, assum $\sqrt 2 + \sqrt 3$ is rational, let  $\sqrt 2 + \sqrt 3 = \frac{p}{q}$, where p and q are relatively prime integers.\\
+        Then $(\sqrt 2 + \sqrt 3)^2 = p^2 \rightarrow 5q^2 + 2\sqrt 6 q = p^2$\\
+        Then we can get $\sqrt 6 = \frac{p^2-5q^2}{2q}$, so $\sqrt 6 $ is a rational number. Contradiction
+    \end{proof}
+    But it contradicts to the theorem that is mentioned in the problem.
+\end{solution}
+
+
+
+\begin{problem}
+(5 points) Please read the following description carefully and answer questions. We consider a single object sealed-bid second-price auction (to be explained). In this auction, an auctioneer is responsible for selling a product, and bidders bid for the product. The winner of the auction wins
+the product and pays for it. The detailed settings are as follows:
+\begin{itemize}
+\item There is one product to be sold.
+\item There are N bidders, denoted by N = {1, 2, ..., N}. Bidder $n \in \mathbb{N}$ has a valuation over the product of $v_{n}$.
+\item Every bidder submits his or her bid in a sealed envelope, so other bidders do not know his
+or her bid. Bidder $n \in \mathbb{N}$ submits a bid of $b_{n}$.
+\item  After receiving the bids from all bidders, the auctioneer announces the winner and payment.
+The winner is the bidder who submits the highest bid. The payment of this winner is the
+second highest bid. For example, consider three bidders. Suppose $b_{1} = 2, b_{2} = 4, b_{3} = 5$.
+Then, the winner is bidder 3, and the payment is the second highest bid 4.
+\item If multiple bidders have the same bid, then they draw a lottery. Each of them has equally
+probability of winning. In this case, the payment is equal to their bids. For example,
+consider three bidders. Suppose $b_{1} = 2, b_{2}= 5, b_{3} = 5$. The winner is either 2 or 3 with
+equal probability. The payment is 5.
+\item After the auction, the payoffs of the bidders are as follows:
+    \begin{itemize}
+        \item If bidder n loses, his or her payoff is zero.
+        \item  If bidder n wins, his or her payoff is equal to its valuation $v_{n}$ minus the payment.
+    \end{itemize}
+    
+For bidder n, the higher payoff, the better.
+\end{itemize}
+Now, suppose you are a bidder in this auction, e.g., bidder n, and you do not know any other
+bidders' valuations and bids. You know your valuation $v_{n}$. You can choose your bid $b_{n}$ to maximize your payoff. Prove that for an arbitrary bidder $n \in \mathbb{N}$ , submitting a bid $b_{n} = v_{n}$ will always lead
+to a payoff that is no smaller than submitting a bid with $b_{n} \neq v_{n}$.
+(Note: This second-price auction is commonly used, due to the property that bidders are willing
+to submit their valuation as their bid. )
+(Hint: Use proof by cases; consider the highest bid of the others, and compare it with your
+valuation $v_{n}$; enumerate all possibilities.)
+\end{problem}
+\begin{solution}
+    Since we do not need to consider the loss situation, so if we win, we can let $b_{n} = max{b_{1},...b_{2}}$ 
+    Suppose $k = max{b_{1},...,b_{n}}/b_{n}$, then we can enumerate all the situations in the table below.\\
+    \begin{tabular}{|c|c|c|c|}\hline
+        & $v_{n} = b_{n}$ & $b_{n} < v_{n}$ & $b_{n} > v_{n}$\\\hline
+        $k < v_{n}$ & $v_{n} - k$ &  $v_{n} - k$ &  $v_{n} - k$\\\hline
+        $k = v_{n}$ & 0 & 0 & 0\\\hline
+        $k > v_{n}$ & 0 & 0 &  
+            \begin{tabular}{c c}
+                $v_{n} - k < 0$, & $b_{n} > k$ \\ 
+                0,& $b_{n} = k $\\
+                0,& $b_{n} < k$\\                 
+            \end{tabular}\\\hline
+        \end{tabular}\\[12pt]
+    We can see that if we always let $b_{n} = v_{n}$, the payoff is no smaller than the other situations.
+\end{solution}
+
+
+
+
+
+% \begin{note}
+%     Write note here. 
+% \end{note}
+
+\end{document}
